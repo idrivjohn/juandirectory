@@ -1,0 +1,22 @@
+<IfModule mod_php5.c>
+    php_value short_open_tag 1
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    Options -Indexes
+    
+    # Remove /public from URL
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+    
+    # Remove index.php from URL
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !^public/
+    RewriteRule ^(.*)$ public/index.php?url=$1 [QSA,PT,L]
+    
+    # Handle trailing slashes
+    RewriteCond %{SCRIPT_FILENAME} -d
+    RewriteRule ^(.*[^/])$ /$1/ [R=301]
+</IfModule>

@@ -1,0 +1,31 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Remove index.php from URL
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,PT,L]
+    
+    # Handle trailing slashes
+    RewriteCond %{SCRIPT_FILENAME} -d
+    RewriteRule ^(.*[^/])$ $1/ [R=301]
+    
+    # Prevent direct access to logs
+    RewriteRule ^../logs/ - [F]
+    RewriteRule ^../config/ - [F]
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
+
+# Allow access to public files
+<FilesMatch "\.(jpg|jpeg|png|gif|js|css|pdf|txt)$">
+    Allow from all
+</FilesMatch>

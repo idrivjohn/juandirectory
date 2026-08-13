@@ -10,6 +10,12 @@
     }
   ],
   "require": {
+    "php": ">=8.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0",
+    "phpstan/phpstan": "^1.0",
+    "squizlabs/php_codesniffer": "^3.7"
     "php": ">=7.4"
   },
   "require-dev": {
@@ -18,6 +24,11 @@
   "autoload": {
     "psr-4": {
       "JUANDirectory\\": "src/",
+      "JUANDirectory\\Controllers\\": "src/Controllers/",
+      "JUANDirectory\\Models\\": "src/Models/",
+      "JUANDirectory\\Core\\": "src/Core/",
+      "JUANDirectory\\Utilities\\": "src/Utilities/",
+      "JUANDirectory\\Libraries\\": "src/Libraries/",
       "JUANDirectory\\Core\\": "src/Core/",
       "JUANDirectory\\Controllers\\": "src/Controllers/",
       "JUANDirectory\\Models\\": "src/Models/",
@@ -32,5 +43,20 @@
     "psr-4": {
       "JUANDirectory\\Tests\\": "tests/"
     }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "analyze": "phpstan analyse src/ --level 8",
+    "phpcs": "phpcs --standard=PSR12 src/",
+    "phpcs-fix": "phpcbf --standard=PSR12 src/"
+  },
+  "keywords": [
+    "php",
+    "mvc",
+    "framework",
+    "psr-4",
+    "psr-12",
+    "juandirectory"
+  ]
   }
 }
