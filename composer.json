@@ -1,0 +1,36 @@
+{
+  "name": "juandirectory/juandirectory",
+  "description": "JUANdirectory PHP Model-View-Controller Framework",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "John Virdi V. Alfonso",
+      "email": "jva.ipampanga@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "JUANDirectory\\": "src/",
+      "JUANDirectory\\Core\\": "src/Core/",
+      "JUANDirectory\\Controllers\\": "src/Controllers/",
+      "JUANDirectory\\Models\\": "src/Models/",
+      "JUANDirectory\\Views\\": "src/Views/",
+      "JUANDirectory\\Libraries\\": "src/Libraries/",
+      "JUANDirectory\\Utilities\\": "src/Utilities/",
+      "JUANDirectory\\Database\\": "src/Database/",
+      "JUANDirectory\\Integrations\\": "src/Integrations/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "JUANDirectory\\Tests\\": "tests/"
+    }
+  }
+}
