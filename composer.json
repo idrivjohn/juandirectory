@@ -1,0 +1,50 @@
+{
+  "name": "juandirectory/juandirectory",
+  "description": "Modern PSR-4 compliant PHP MVC framework",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "John Virdi V. Alfonso",
+      "email": "jva.ipampanga@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0",
+    "phpstan/phpstan": "^1.0",
+    "squizlabs/php_codesniffer": "^3.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "JUANDirectory\\": "src/",
+      "JUANDirectory\\Controllers\\": "src/Controllers/",
+      "JUANDirectory\\Models\\": "src/Models/",
+      "JUANDirectory\\Core\\": "src/Core/",
+      "JUANDirectory\\Utilities\\": "src/Utilities/",
+      "JUANDirectory\\Libraries\\": "src/Libraries/",
+      "JUANDirectory\\Integrations\\": "src/Integrations/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "JUANDirectory\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "analyze": "phpstan analyse src/ --level 8",
+    "phpcs": "phpcs --standard=PSR12 src/",
+    "phpcs-fix": "phpcbf --standard=PSR12 src/"
+  },
+  "keywords": [
+    "php",
+    "mvc",
+    "framework",
+    "psr-4",
+    "psr-12",
+    "juandirectory"
+  ]
+}
